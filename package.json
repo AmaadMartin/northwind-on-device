@@ -1,0 +1,36 @@
+{
+  "name": "northwind-on-device",
+  "version": "1.0.0",
+  "description": "A retail storefront assistant running on Chrome's built-in on-device model, built with ADK for TypeScript.",
+  "keywords": [
+    "adk",
+    "typescript",
+    "agent",
+    "browser",
+    "retail",
+    "gemini-nano",
+    "prompt-api",
+    "on-device"
+  ],
+  "license": "Apache-2.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "serve": "node build.mjs --dev && node scripts/serve.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node run-tests.mjs tests/core.test.ts && node run-tests.mjs tests/confirm.test.ts && node run-tests.mjs tests/session-reuse.test.ts",
+    "check": "npm run typecheck && npm run build && npm test",
+    "doctor": "node scripts/doctor.mjs",
+    "patch:adk": "node scripts/patch-adk.mjs"
+  },
+  "dependencies": {
+    "@google/adk": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/dom-chromium-ai": "^0.0.17",
+    "esbuild": "^0.28.1",
+    "typescript": "^5.9.3"
+  }
+}
